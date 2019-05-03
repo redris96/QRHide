@@ -1,9 +1,14 @@
 from PIL import Image
+import sys
 
 im = Image.open('toss.jpeg')
 pix = im.load()
 qr = Image.open('code.png')
 qrp = qr.load()
+
+if im.size < qr.size:
+	print "Input image size smaller than qr image, try with a larger image."
+	sys.exit()
 
 for x in range(qr.size[0]):
 	for y in range(qr.size[1]):
